@@ -1,6 +1,8 @@
 package com.study.design_pattern.strategy.predicate;
 
 import com.study.design_pattern.strategy.predicate.filter.ApplePredicate;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,12 +11,18 @@ import java.util.Map;
 import java.util.Set;
 
 @Component
+@RequiredArgsConstructor
 public class PredicateFactory {
+    private final Set<ApplePredicate> applePredicateSet;
     private Map<String, ApplePredicate> predicate;
 
-    @Autowired
-    public PredicateFactory(Set<ApplePredicate> predicateSet) {
-        createPredicate(predicateSet);
+//    @Autowired
+//    public PredicateFactory(Set<ApplePredicate> predicateSet) {
+//        createPredicate(predicateSet);
+//    }
+    @PostConstruct
+    public void init(){
+        createPredicate(applePredicateSet);
     }
 
     private void createPredicate(Set<ApplePredicate> predicateSet) {
