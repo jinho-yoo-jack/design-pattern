@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.data.r2dbc.R2dbcDataAutoConfigurat
 import org.springframework.boot.autoconfigure.data.r2dbc.R2dbcRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.r2dbc.R2dbcAutoConfiguration;
 import org.springframework.boot.autoconfigure.r2dbc.R2dbcTransactionManagerAutoConfiguration;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
+@EnableWebFlux
 @SpringBootApplication(exclude = {
     R2dbcAutoConfiguration.class,
     R2dbcDataAutoConfiguration.class,
