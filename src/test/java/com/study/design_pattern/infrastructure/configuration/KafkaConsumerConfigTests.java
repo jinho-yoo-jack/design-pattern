@@ -1,16 +1,14 @@
 package com.study.design_pattern.infrastructure.configuration;
 
-import com.study.design_pattern.infrastructure.kafka.ReactiveKafkaListener;
+import com.study.reative.infrastructure.configuration.KafkaConsumerConfig;
+import com.study.reative.infrastructure.kafka.ReactiveKafkaListener;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.AnnotationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import reactor.kafka.receiver.KafkaReceiver;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 import java.util.Optional;
 
 @SpringBootTest

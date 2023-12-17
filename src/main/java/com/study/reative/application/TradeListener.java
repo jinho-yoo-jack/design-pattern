@@ -1,11 +1,9 @@
-package com.study.design_pattern.application;
+package com.study.reative.application;
 
-import com.study.design_pattern.infrastructure.configuration.KafkaConsumerConfig;
-import com.study.design_pattern.infrastructure.kafka.ReactiveKafkaListener;
+import com.study.reative.infrastructure.configuration.KafkaConsumerConfig;
+import com.study.reative.infrastructure.kafka.ReactiveKafkaListener;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Flux;
-import reactor.kafka.receiver.ReceiverRecord;
 
 @Slf4j
 @RequiredArgsConstructor

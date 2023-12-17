@@ -1,13 +1,10 @@
-package com.study.design_pattern.infrastructure.configuration;
+package com.study.reative.infrastructure.configuration;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
-import org.springframework.boot.ssl.SslBundles;
 import org.springframework.stereotype.Component;
-import reactor.kafka.receiver.KafkaReceiver;
-import reactor.kafka.receiver.ReceiverOptions;
+import reactor.kafka.receiver.*;
 
 import java.util.Set;
 

@@ -1,10 +1,8 @@
-package com.study.design_pattern.infrastructure.kafka;
+package com.study.reative.infrastructure.kafka;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -25,8 +23,9 @@ public class KafkaConsumerRunner implements ApplicationRunner {
             String topic = annotation.topic();
             log.info("bean:{} class-path:{} topic-name:{}", beanName, listener, topic);
             try {
+                // getMethod(method_name, argument_type, ...);
                 listener.getClass().getMethod("subscribe", String.class)
-                    .invoke(listener, topic);
+                    .invoke(listener, topic); // invoke(Instance, Parameters_1, Parameters_2, ...);
 
             } catch (Exception e) {
                 log.error("{} Subscribe Failed - Error Message => {}", topic, e.getMessage());

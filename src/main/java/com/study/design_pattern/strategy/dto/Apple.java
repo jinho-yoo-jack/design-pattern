@@ -1,13 +1,12 @@
 package com.study.design_pattern.strategy.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Builder
 @Getter
+@Setter
 public class Apple {
-    private final Color color;
-    private final Long weight;
+    private Color color;
+    private Long weight;
 }
