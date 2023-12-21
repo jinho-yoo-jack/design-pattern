@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +28,10 @@ public class AppleServiceTest {
         List<Apple> result = appleService.getFilteredAppleList(appleList, "AppleColorPredicate");
     }
 
-    public void changeWeight (Apple a){
+    public void changeWeight(Apple a) {
         a.setWeight(1234L);
     }
+
     @Test
     public void callByRefTest() {
         Apple a = Apple.builder()
@@ -39,6 +41,15 @@ public class AppleServiceTest {
 
         changeWeight(a);
         log.info("Apple Weight => {}", a.getWeight());
+    }
+
+    @Test
+    public void UpStreamDownStreamExample_1() {
+        Flux
+            .just(1, 2, 3, 4, 5, 6)
+            .filter(input -> input % 2 == 0) // Signature (T) -> boolean
+            .map(filteredInput -> filteredInput * 2)
+            .subscribe(System.out::println);
     }
 
 }
