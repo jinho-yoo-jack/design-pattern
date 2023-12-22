@@ -192,4 +192,18 @@ public class StudyExampleSource {
         );
     }
 
+    @Test
+    public void subscribeLambdaTest(){
+        Flux<Integer> limit = Flux.range(1, 25)
+            .doOnNext(value -> log.info("# doOnNext -> {}", value));
+
+        limit.limitRate(10);
+        limit.subscribe(
+            System.out::println, // onNext
+            Throwable::printStackTrace, // onError
+            () -> System.out.println("Finished!!"), // onComplete
+            subscription -> subscription.request(15) // Subscription
+        );
+    }
+
 }
